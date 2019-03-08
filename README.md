@@ -1,8 +1,8 @@
-Leage of Legends Stat tracker app
+# Leage of Legends Stat tracker app
 
-Coding challenge for Battlefy, details found here: https://gist.github.com/jbueza/490d3aa4a096498d4642a0f602ce6968
+Coding challenge for Battlefy, details found [here](https://gist.github.com/jbueza/490d3aa4a096498d4642a0f602ce6968)
 
-Progress over the 4 hour set time period for the challenge:
+### Progress over the 4 hour set time period for the challenge:
 
 1. Built a basic server back-end with Node.js and express. Features a few RESTful endpoints for client queries to send params to Riot's server, and some common libraries to support (Axios, Bodyparser, Cors controls for headers etc).
 
@@ -14,7 +14,7 @@ Progress over the 4 hour set time period for the challenge:
 
 5. After a fair bit of frustration and trying out a few different approaches to cleaning the data in the back-end, I decided that in the interests of time it was simply not happening - and migrated some of the controller functions to the App. Had some success here, and discovered other challenges - mainly thought challenges around how to effectively map the data from the Riot API (finding a simple way to trim out the unnecessary data that I though may be causing the app to run incredibly slowly). Big learning for me here is I need to brush up on my OOP and object generation.
 
-6. All through this I was conscious that the app seemed to be performing incredibly slowly, sometimes taking upwards of 6-7 seconds to get all the match details for the 5 most recent games of a summoner. While it did work, I'm sure this is not the intention of Kayn, and you can see from their own code comments here (https://github.com/cnguy/kayn/blob/master/examples/async.await/v4/get-last-10-ranked-matches-efficiently.js) they expect it to perform the same tasks in a little over 1 second, so something isn't right and I need to do more digging to understand what I'm not doing right. I think I saw this package defaulting to a spread strategy, which would make more sense with high volumes of requests - I need to play around with the burst strategy I think in the embedded riot-rate-limiter, and ideally combine both to optimise efficiency and resources for the app.
+6. All through this I was conscious that the app seemed to be performing incredibly slowly, sometimes taking upwards of 6-7 seconds to get all the match details for the 5 most recent games of a summoner. While it did work, I'm sure this is not the intention of Kayn, and you can see from their own code comments [here](https://github.com/cnguy/kayn/blob/master/examples/async.await/v4/get-last-10-ranked-matches-efficiently.js) they expect it to perform the same tasks in a little over 1 second, so something isn't right and I need to do more digging to understand what I'm not doing right. I think I saw this package defaulting to a spread strategy, which would make more sense with high volumes of requests - I need to play around with the burst strategy I think in the embedded riot-rate-limiter, and ideally combine both to optimise efficiency and resources for the app.
 
 After all this, I was able to retireve a LOT of data, and within that I believe I have access to all the necessary info for this challenge - I unfortunately ran out of time to map it correctly to the front end. Between console logs and JSX outputs, you should be able to see stats on:
 
@@ -37,14 +37,25 @@ Other thoughts for Production:
 - Get a registered API key so you don't need to refresh it every 24h
 - Spend some time on the front end making it look pretty, and optimise for Mobile.
 
-Usage:
-Clone repository > npm install
-Set up a .env file with your own riot API key.
-
-Front-end
-npm start
-
-Back-end
-/src/server nodemon server.js
-
 Once reviewed, I'll tidy up the app to a point I'm satisfied with it, and then probably repeat the exercise for Dota2 (so the app is actually beneficial)!! :)
+
+# Usage:
+
+```bash
+Clone repository 
+> npm install
+```
+
+```bash
+### Front-end
+npm start
+```
+
+```bash
+### Back-end
+/src/server > nodemon server.js
+
+Don't forget to set up a .env file with your own riot API key!
+```
+
+
