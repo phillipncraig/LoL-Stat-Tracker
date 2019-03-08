@@ -52,10 +52,8 @@ npm start
 ```
 
 ```bash
-### Back-end
+### Back-end (don't forget to set up a .env file with your own riot API key!)
 /src/server > nodemon server.js
-
-Don't forget to set up a .env file with your own riot API key!
 ```
 
 
